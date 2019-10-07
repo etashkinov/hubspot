@@ -1,0 +1,3 @@
+# Project exclude paths
+/hubspot-api/target/
+/hubspot-spring-api/target/
