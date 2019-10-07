@@ -4,18 +4,19 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>hubspot</artifactId>
-        <groupId>com.etashkinov.hubspot</groupId>
-        <version>0.1.0</version>
+        <groupId>com.github.etashkinov</groupId>
+        <version>0.1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>hubspot-spring-api</artifactId>
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
-            <groupId>com.etashkinov.hubspot</groupId>
+            <groupId>com.github.etashkinov</groupId>
             <artifactId>hubspot-api</artifactId>
-            <version>0.1.0</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
