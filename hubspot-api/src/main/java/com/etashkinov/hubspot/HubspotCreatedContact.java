@@ -9,7 +9,7 @@ public class HubspotCreatedContact {
     private final boolean isNew;
 
     @JsonCreator
-    public HubspotCreatedContact(@JsonProperty("isNew") String vid, @JsonProperty("isNew") boolean isNew) {
+    public HubspotCreatedContact(@JsonProperty("vid") String vid, @JsonProperty("isNew") boolean isNew) {
         this.vid = vid;
         this.isNew = isNew;
     }
