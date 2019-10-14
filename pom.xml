@@ -5,7 +5,7 @@
     <groupId>com.github.etashkinov</groupId>
     <artifactId>hubspot</artifactId>
     <packaging>pom</packaging>
-    <version>0.1.2-SNAPSHOT</version>
+    <version>0.2.0</version>
 
     <name>Hubspot Java API</name>
     <description>Java API wrapper on Hubspot API</description>
@@ -27,7 +27,7 @@
         <developerConnection>
             scm:git:ssh://git@github.com:etashkinov/hubspot.git
         </developerConnection>
-        <tag>HEAD</tag>
+        <tag>hubspot-0.2.0</tag>
     </scm>
     <developers>
         <developer>
