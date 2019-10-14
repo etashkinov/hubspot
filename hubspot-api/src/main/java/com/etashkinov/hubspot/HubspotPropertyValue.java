@@ -1,9 +1,9 @@
 package com.etashkinov.hubspot;
 
-class HubspotPropertyValue {
+public class HubspotPropertyValue {
     private final String value;
 
-    HubspotPropertyValue(String value) {
+    public HubspotPropertyValue(String value) {
         this.value = value;
     }
 

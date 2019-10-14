@@ -3,7 +3,7 @@ package com.etashkinov.hubspot;
 import java.util.LinkedList;
 import java.util.List;
 
-abstract class HubspotBuilder<T extends HubspotBuilder<T, PV>, PV> {
+public abstract class HubspotBuilder<T extends HubspotBuilder<T, PV>, PV> {
 
     private final List<PV> properties;
 

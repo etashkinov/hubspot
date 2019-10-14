@@ -1,9 +1,12 @@
-package com.etashkinov.hubspot;
+package com.etashkinov.hubspot.contacts;
+
+import com.etashkinov.hubspot.HubspotBuilder;
+import com.etashkinov.hubspot.HubspotPropertyValue;
 
 import java.util.Collections;
 import java.util.List;
 
-public class HubspotNewContact {
+public class HubspotContactUpdate {
 
     public static Builder builder() {
         return new Builder();
@@ -11,7 +14,7 @@ public class HubspotNewContact {
 
     private final List<HubspotContactPropertyValue> properties;
 
-    private HubspotNewContact(List<HubspotContactPropertyValue> properties) {
+    private HubspotContactUpdate(List<HubspotContactPropertyValue> properties) {
         this.properties = Collections.unmodifiableList(properties);
     }
 
@@ -75,8 +78,8 @@ public class HubspotNewContact {
             return addValue(HubspotContactProperty.ZIP, zip);
         }
 
-        public HubspotNewContact build() {
-            return new HubspotNewContact(getProperties());
+        public HubspotContactUpdate build() {
+            return new HubspotContactUpdate(getProperties());
         }
     }
 }

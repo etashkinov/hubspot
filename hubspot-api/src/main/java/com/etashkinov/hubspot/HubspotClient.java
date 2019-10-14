@@ -1,13 +1,14 @@
 package com.etashkinov.hubspot;
 
-import java.util.Map;
+import com.etashkinov.hubspot.companies.CompaniesClient;
+import com.etashkinov.hubspot.contacts.ContactsClient;
+import com.etashkinov.hubspot.transport.HttpClient;
+import com.etashkinov.hubspot.transport.RootPathHttpClient;
+import com.etashkinov.hubspot.transport.SimpleHttpClient;
 
 public class HubspotClient {
 
     public static final String ROOT_PATH = "https://api.hubapi.com";
-
-    private static final String PATH_COMPANIES = "/companies/v2/companies/";
-    private static final String PATH_CONTACT = "/contacts/v1/contact/";
 
     private final String hubspotApiKey;
     private final HttpClient httpClient;
@@ -17,40 +18,43 @@ public class HubspotClient {
         this.hubspotApiKey = hubspotApiKey;
     }
 
+    public HubspotClient(String hubspotApiKey) {
+        this(new SimpleHttpClient(), hubspotApiKey);
+    }
+
     public HubspotClient(HttpClient httpClient, String hubspotApiKey) {
         this(ROOT_PATH, httpClient, hubspotApiKey);
     }
 
-    public HubspotCreatedContact createOrUpdateContact(String email, HubspotNewContact newContact) {
-        String path = PATH_CONTACT + "createOrUpdate/email/" + email;
-        return postForObject(path, newContact, HubspotCreatedContact.class);
+    public void createAssociation(String from, String to, int definition) {
+        put("/crm-associations/v1/associations", new HubspotAssociation(from, to, definition));
     }
 
-    public HubspotContactProfile getContact(String email) {
-        return getForObject(PATH_CONTACT + "email/" + email + "/profile", HubspotContactProfile.class);
-    }
-
-    public HubspotCompany getCompany(String companyId) {
-        return getForObject(PATH_COMPANIES + companyId, HubspotCompany.class);
-    }
-
-    public void updateCompany(String companyId, HubspotCompanyUpdate companyUpdate) {
-        put(PATH_COMPANIES + companyId, companyUpdate);
-    }
-
-    private <T> T postForObject(String path, Object body, Class<T> clazz) {
+    public <T> T postForObject(String path, Object body, Class<T> clazz) {
         return httpClient.postForObject(getPathWithParam(path), body, clazz);
     }
 
-    private void put(String path, Object body) {
+    public void put(String path, Object body) {
         httpClient.put(getPathWithParam(path), body);
     }
 
-    private <T> T  getForObject(String path, Class<T> clazz) {
+    public void delete(String path) {
+        httpClient.delete(getPathWithParam(path));
+    }
+
+    public <T> T  getForObject(String path, Class<T> clazz) {
         return httpClient.getForObject(getPathWithParam(path), clazz);
     }
 
     private String getPathWithParam(String path) {
         return path + "?hapikey=" + hubspotApiKey;
+    }
+
+    public ContactsClient getContacts() {
+        return new ContactsClient(this);
+    }
+
+    public CompaniesClient getCompanies() {
+        return new CompaniesClient(this);
     }
 }

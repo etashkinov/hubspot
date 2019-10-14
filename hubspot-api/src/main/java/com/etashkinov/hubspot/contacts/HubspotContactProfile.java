@@ -1,5 +1,6 @@
-package com.etashkinov.hubspot;
+package com.etashkinov.hubspot.contacts;
 
+import com.etashkinov.hubspot.HubspotProperties;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;

@@ -1,5 +1,6 @@
-package com.etashkinov.hubspot;
+package com.etashkinov.hubspot.companies;
 
+import com.etashkinov.hubspot.HubspotProperties;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -20,5 +21,10 @@ public class HubspotCompany extends HubspotProperties {
 
     public String getCompanyId() {
         return companyId;
+    }
+
+    public String getName() {
+        return getProperty(HubspotCompanyProperty.NAME)
+                .orElseThrow(() -> new IllegalStateException("No name found for company " + getCompanyId()));
     }
 }

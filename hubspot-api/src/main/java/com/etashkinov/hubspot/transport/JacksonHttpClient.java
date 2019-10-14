@@ -1,4 +1,4 @@
-package com.etashkinov.hubspot;
+package com.etashkinov.hubspot.transport;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -38,6 +38,10 @@ public abstract class JacksonHttpClient implements HttpClient {
     }
 
     private <T> T toObject(InputStream is, Class<T> clazz) {
+        if (is == null) {
+            return null;
+        }
+
         try {
             return MAPPER.readValue(is, clazz);
         } catch (Exception e) {

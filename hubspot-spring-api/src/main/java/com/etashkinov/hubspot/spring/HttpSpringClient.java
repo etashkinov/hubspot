@@ -1,6 +1,6 @@
 package com.etashkinov.hubspot.spring;
 
-import com.etashkinov.hubspot.HttpClient;
+import com.etashkinov.hubspot.transport.HttpClient;
 import org.springframework.web.client.RestTemplate;
 
 public class HttpSpringClient implements HttpClient {
@@ -19,6 +19,11 @@ public class HttpSpringClient implements HttpClient {
     @Override
     public void put(String path, Object body) {
         template.put(path, body);
+    }
+
+    @Override
+    public void delete(String path) {
+        template.delete(path);
     }
 
     @Override

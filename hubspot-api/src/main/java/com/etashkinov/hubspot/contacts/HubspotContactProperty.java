@@ -1,4 +1,4 @@
-package com.etashkinov.hubspot;
+package com.etashkinov.hubspot.contacts;
 
 public class HubspotContactProperty {
     public static final String FIRST_NAME = "firstname";

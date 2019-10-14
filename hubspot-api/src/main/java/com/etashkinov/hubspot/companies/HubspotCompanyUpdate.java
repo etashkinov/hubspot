@@ -1,4 +1,7 @@
-package com.etashkinov.hubspot;
+package com.etashkinov.hubspot.companies;
+
+import com.etashkinov.hubspot.HubspotBuilder;
+import com.etashkinov.hubspot.HubspotPropertyValue;
 
 import java.util.Collections;
 import java.util.List;
@@ -39,8 +42,12 @@ public class HubspotCompanyUpdate {
             return new HubspotCompanyPropertyValue(name, value);
         }
 
+        public HubspotCompanyUpdate.Builder name(String name) {
+            return addValue(HubspotCompanyProperty.NAME, name);
+        }
+
         public HubspotCompanyUpdate build() {
-            return new HubspotCompanyUpdate(getProperties());
+            return new HubspotCompanyUpdate(super.getProperties());
         }
     }
 }

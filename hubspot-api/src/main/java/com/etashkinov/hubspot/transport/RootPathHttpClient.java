@@ -1,4 +1,4 @@
-package com.etashkinov.hubspot;
+package com.etashkinov.hubspot.transport;
 
 public class RootPathHttpClient implements HttpClient {
 
@@ -22,6 +22,11 @@ public class RootPathHttpClient implements HttpClient {
     @Override
     public void put(String path, Object body) {
         httpClient.put(getAbsolutePath(path), body);
+    }
+
+    @Override
+    public void delete(String path) {
+        httpClient.delete(getAbsolutePath(path));
     }
 
     @Override

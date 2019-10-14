@@ -1,4 +1,4 @@
-package com.etashkinov.hubspot;
+package com.etashkinov.hubspot.contacts;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
