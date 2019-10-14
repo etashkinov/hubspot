@@ -38,6 +38,9 @@ public class HubspotClientTest {
 
         HubspotContactProfile profile = getContact();
         assertThat(profile.getVid()).isEqualTo(contact.getVid());
+
+        HubspotContactProfile profileById = client.getContacts().getById(contact.getVid());
+        assertThat(profileById).isNotNull();
     }
 
     private HubspotCreatedContact createContact() {

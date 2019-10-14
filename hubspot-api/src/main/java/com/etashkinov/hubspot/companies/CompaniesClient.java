@@ -16,11 +16,11 @@ public class CompaniesClient {
         return client.postForObject(PATH_COMPANIES, update, HubspotCompany.class);
     }
 
-    public void updateCompany(String companyId, HubspotCompanyUpdate companyUpdate) {
+    public void update(String companyId, HubspotCompanyUpdate companyUpdate) {
         client.put(PATH_COMPANIES + companyId, companyUpdate);
     }
 
-    public HubspotCompany getCompany(String companyId) {
+    public HubspotCompany get(String companyId) {
         return client.getForObject(PATH_COMPANIES + companyId, HubspotCompany.class);
     }
 

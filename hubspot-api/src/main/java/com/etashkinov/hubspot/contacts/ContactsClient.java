@@ -26,6 +26,10 @@ public class ContactsClient {
         return client.getForObject(PATH_CONTACT_EMAIL + email + "/profile", HubspotContactProfile.class);
     }
 
+    public HubspotContactProfile getById(String vid) {
+        return client.getForObject(PATH_CONTACT_VID + vid + "/profile", HubspotContactProfile.class);
+    }
+
     public void delete(String vid) {
         client.delete(PATH_CONTACT_VID + vid);
     }
